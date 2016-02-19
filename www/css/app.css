@@ -1,0 +1,42 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+input,
+#result {
+	text-align: center;
+	text-transform: none;
+}
+
+ul.menu,
+ul.menu.li {
+  text-align: center;
+}
+
+.setting-label {
+  text-align: right;
+}
+
+.setting-input {
+  text-align: left;
+}
+
+.day-border {
+  border-style: solid;
+  border-width: thin;
+  border-color: #FFFFFF;
+}
+
+.day-type,
+.day-type a {
+  color: #FF0000;
+}
+
+.pay-amount {
+  font-size: 80%;
+  line-height: 200%;
+}

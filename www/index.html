@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link rel="stylesheet" href="css/app.css" />
+        <title>TeachTime</title>
+    </head>
+    <body>
+      <div class="row">
+        <div class="columns">
+          <h5 id="year"></h5>
+        </div>
+      </div>
+
+      <div class="row align-center">
+        <div class="6 columns">
+          <a id="previousWeek" class="button expanded">&lt;</a>
+        </div>
+        <div class="6 columns">
+          <a id="nextWeek" class="button expanded">&gt;</a>
+        </div>
+      </div>
+      <div class="row align-center">
+        <div id="mon" class="columns">
+          <div class="day-border">
+            <p class="day-label"></p>
+            <p class="day-type">&nbsp;</p>
+            <p class="entry"><a class="entry_value">+</a></p>
+          </div>
+        </div>
+        <div id="tue" class="columns">
+          <div class="day-border">
+            <p class="day-label"></p>
+            <p class="day-type">&nbsp;</p>
+            <p class="entry"><a class="entry_value">+</a></p>
+          </div>
+        </div>
+        <div id="wed" class="columns">
+          <div class="day-border">
+            <p class="day-label"></p>
+            <p class="day-type">&nbsp;</p>
+            <p class="entry"><a class="entry_value">+</a></p>
+          </div>
+        </div>
+        <div id="thu" class="columns">
+          <div class="day-border">
+            <p class="day-label"></p>
+            <p class="day-type">&nbsp;</p>
+            <p class="entry"><a class="entry_value">+</a></p>
+          </div>
+        </div>
+        <div id="fri" class="columns">
+          <div class="day-border">
+            <p class="day-label"></p>
+            <p class="day-type">&nbsp;</p>
+            <p class="entry"><a class="entry_value">+</a></p>
+          </div>
+        </div>
+      </div>
+
+      <form id="time_form">
+
+        <div class="row align-center">
+          <div class="4 columns">
+            <label>Regular
+              <input id="lessons_regular" type="number" name="lessons_regular" placeholder="# Regular Lessons" value="" />
+            </label>
+          </div>
+          <div class="4 columns">
+            <label>Premium
+              <input id="lessons_premium" type="number" name="lessons_premium" placeholder="# Premium Lessons" />
+            </label>
+          </div>
+          <div class="4 columns">
+            <label>Admin
+              <input id="lessons_admin" type="number" name="lessons_admin" placeholder="# Admin Hours" />
+            </label>
+          </div>
+        </div>
+        <div class="row align-center">
+          <div class="columns">              
+            <label>Date
+              <input id="entry_date" type="date" name="entry_date" placeholder="date" value="" required disabled="disabled" />
+            </label>
+          </div>
+        </div>
+        <div class="row align-center">
+          <div class="columns">              
+            <input type="submit" id="addButton" class="expanded button success" value="Add Lessons"></button>
+          </div>
+        </div>
+
+      </form>
+      <div class="row">      
+        <div class="2 columns">
+          <a id="settingsButton" class="button expanded">Settings</a>
+        </div>
+      </div>
+      <div class="row">      
+        <div class="2 columns">
+          <a id="payrollButton" class="button expanded">Payroll Setup</a>
+        </div>
+      </div>
+
+      <div class="row align-center">
+        <div class="columns">  
+          <p id="result"></p>
+        </div>
+      </div>
+
+      <div class="reveal" id="settingsModal" data-reveal>
+        <form id="settings_form">
+          <div class="row align-middle">
+            <div class="columns">
+              <h3>Settings</h3>
+            </div>
+          </div>
+          <div class="row align-middle">
+            <div class="small-6 columns">
+              <p class="setting-label">Regular Rate</p>
+            </div>
+            <div class="small-6 columns">
+              <input id="pay_rate_regular" class="setting-input" type="number" name="lessons_regular" placeholder="Regular Lesson Rate" required />
+            </div>
+          </div>
+          <div class="row align-middle">
+            <div class="small-6 columns">
+              <p class="setting-label">Premium Rate</p>
+            </div>
+            <div class="small-6 columns">
+              <input id="pay_rate_premium" class="setting-input" type="number" name="lessons_premium" placeholder="Premium Lesson Rate" required />
+            </div>
+          </div>
+          <div class="row align-middle">
+            <div class="small-6 columns">
+              <p class="setting-label">Admin Rate</p>
+            </div>
+            <div class="small-6 columns">
+              <input id="pay_rate_admin" class="setting-input" type="number" name="lessons_admin" placeholder="Admin Rate" required />
+            </div>
+          </div>
+          <div class="row">
+            <div class="columns">
+              <button id="saveSettings" class="expanded button success">Save</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="row">
+          <div class="columns">
+            <a id="deleteAllEntries" class="alert button expanded">Delete All Entries</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="columns">
+            <a id="deleteSettings" class="alert button expanded">Delete Settings</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="columns">
+            <a id="deletePayroll" class="alert button expanded">Delete Payroll</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="columns">
+            <a id="calculatePay" class="button expanded">Calculate Pay</a>
+          </div>
+        </div>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>   
+      </div>
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+      <script src="js/vendor/jquery.min.js"></script>
+      <script src="js/vendor/what-input.min.js"></script>
+      <script src="js/foundation.min.js"></script>
+      <script src="js/date_extensions.js"></script>
+      <script src="js/app.js"></script>
+      <script type="text/javascript">
+          app.initialize();
+      </script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+
+          // Initialize Foundation
+          $(document).foundation();
+
+          // Initialize system
+          TT.initializeApp();
+
+        }, false);
+      </script>
+    </body>
+</html>
